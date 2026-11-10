@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PULSE Dashboard - Modern analytics dashboard UI">
+  <title>PULSE Dashboard | Analytics</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-icon"><i data-lucide="activity"></i></div>
+        <span>PULSE</span>
+      </div>
+
+      <p class="nav-label">MAIN MENU</p>
+      <nav>
+        <a href="#overview" class="nav-link active" data-page="overview"><i data-lucide="layout-dashboard"></i> Overview</a>
+        <a href="#analytics" class="nav-link" data-page="analytics"><i data-lucide="chart-no-axes-combined"></i> Analytics</a>
+        <a href="#customers" class="nav-link" data-page="customers"><i data-lucide="users"></i> Customers</a>
+        <a href="#products" class="nav-link" data-page="products"><i data-lucide="shopping-bag"></i> Products</a>
+        <a href="#transactions" class="nav-link" data-page="transactions"><i data-lucide="wallet"></i> Transactions</a>
+      </nav>
+
+      <p class="nav-label">PREFERENCES</p>
+      <nav>
+        <a href="#settings" class="nav-link" data-page="settings"><i data-lucide="settings"></i> Settings</a>
+        <a href="#help-center" class="nav-link" data-page="help"><i data-lucide="circle-help"></i> Help Center</a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="profile">
+          <div class="avatar">JD</div>
+          <div>
+            <strong>John Doe</strong>
+            <small>Administrator</small>
+          </div>
+          <i data-lucide="chevron-down"></i>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="top-left">
+          <button class="icon-btn mobile-menu" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar">
+            <i data-lucide="menu"></i>
+          </button>
+          <div>
+            <h1>Dashboard Overview</h1>
+            <p class="subtitle">Monitor your business performance at a glance.</p>
+          </div>
+        </div>
+
+        <div class="top-actions">
+          <div class="search-box">
+            <i data-lucide="search"></i>
+            <input type="search" id="searchInput" placeholder="Search transactions..." aria-label="Search transactions">
+          </div>
+          <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">
+            <i data-lucide="moon"></i>
+          </button>
+          <button class="icon-btn notification" id="notificationBtn" aria-label="Notifications" aria-expanded="false" aria-controls="notificationMenu">
+            <i data-lucide="bell"></i>
+            <span></span>
+          </button>
+          <button class="profile-trigger" id="profileBtn" aria-label="Open profile menu" aria-expanded="false" aria-controls="profileMenu">
+            <span class="top-avatar">JD</span>
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="popover notification-menu" id="notificationMenu" hidden>
+            <strong>You're all caught up</strong>
+            <p>New activity will appear here.</p>
+            <small>Demo workspace</small>
+          </div>
+          <div class="popover profile-menu" id="profileMenu" hidden>
+            <strong>John Doe</strong>
+            <p>Administrator</p>
+            <small>Demo profile</small>
+          </div>
+        </div>
+      </header>
+
+      <section class="dashboard">
+        <div class="section-heading">
+          <div>
+            <h2>Overview</h2>
+            <p>Fictional sample data for portfolio demonstration</p>
+          </div>
+          <select id="dateFilter" class="date-filter" aria-label="Select date range">
+            <option value="7">Last 7 days</option>
+            <option value="30" selected>Last 30 days</option>
+            <option value="90">Last 90 days</option>
+          </select>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card">
+            <div class="stat-top">
+              <span>Total Revenue</span>
+              <div class="stat-icon purple"><i data-lucide="wallet"></i></div>
+            </div>
+            <h3>$48,294</h3>
+            <div class="stat-footer">
+              <p class="positive">↑ 12.8% <span>vs previous period</span></p>
+              <svg class="sparkline positive-line" viewBox="0 0 74 28" aria-hidden="true"><path d="M2 23 14 17 25 20 37 10 49 14 61 5 72 3"></path></svg>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-top">
+              <span>Total Customers</span>
+              <div class="stat-icon blue"><i data-lucide="users"></i></div>
+            </div>
+            <h3>8,549</h3>
+            <div class="stat-footer">
+              <p class="positive">↑ 8.2% <span>vs previous period</span></p>
+              <svg class="sparkline positive-line" viewBox="0 0 74 28" aria-hidden="true"><path d="M2 22 14 19 25 14 37 17 49 9 61 11 72 4"></path></svg>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-top">
+              <span>Total Orders</span>
+              <div class="stat-icon orange"><i data-lucide="shopping-cart"></i></div>
+            </div>
+            <h3>2,486</h3>
+            <div class="stat-footer">
+              <p class="positive">↑ 5.4% <span>vs previous period</span></p>
+              <svg class="sparkline positive-line" viewBox="0 0 74 28" aria-hidden="true"><path d="M2 21 14 15 25 19 37 12 49 14 61 7 72 5"></path></svg>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-top">
+              <span>Conversion Rate</span>
+              <div class="stat-icon green"><i data-lucide="trending-up"></i></div>
+            </div>
+            <h3>3.62%</h3>
+            <div class="stat-footer">
+              <p class="negative">↓ 1.2% <span>vs previous period</span></p>
+              <svg class="sparkline negative-line" viewBox="0 0 74 28" aria-hidden="true"><path d="M2 4 14 8 25 6 37 13 49 12 61 20 72 24"></path></svg>
+            </div>
+          </article>
+        </div>
+
+        <div class="charts-grid">
+          <article class="panel revenue-panel">
+            <div class="panel-heading">
+              <div>
+                <h3>Revenue Analytics</h3>
+                <p>Monthly revenue performance</p>
+              </div>
+              <span class="panel-badge">Demo data</span>
+            </div>
+            <div class="chart-container">
+              <canvas id="revenueChart"></canvas>
+            </div>
+          </article>
+
+          <article class="panel traffic-panel">
+            <div class="panel-heading">
+              <div>
+                <h3>Traffic Sources</h3>
+                <p>Where visitors come from</p>
+              </div>
+              <span class="panel-badge">Demo data</span>
+            </div>
+            <div class="chart-container doughnut-container">
+              <canvas id="trafficChart"></canvas>
+            </div>
+            <div class="traffic-legend">
+              <span><i class="dot purple-dot"></i> Direct <strong>40%</strong></span>
+              <span><i class="dot blue-dot"></i> Social <strong>35%</strong></span>
+              <span><i class="dot orange-dot"></i> Search <strong>25%</strong></span>
+            </div>
+          </article>
+        </div>
+
+        <article class="panel orders-panel">
+          <div class="panel-heading transaction-heading">
+            <div>
+              <h3>Recent Transactions</h3>
+              <p>Latest demo transactions</p>
+            </div>
+            <div class="transaction-actions">
+              <label class="sr-only" for="statusFilter">Filter by status</label>
+              <select id="statusFilter" class="status-filter">
+                <option value="all">All statuses</option>
+                <option value="completed">Completed</option>
+                <option value="pending">Pending</option>
+                <option value="cancelled">Cancelled</option>
+              </select>
+              <button class="view-btn" id="viewAllBtn">View all <i data-lucide="arrow-up-right"></i></button>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Customer</th>
+                  <th>Product</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="transactionBody">
+                <tr>
+                  <td data-label="Customer"><strong>Olivia Martin</strong></td>
+                  <td data-label="Product">Premium Plan</td>
+                  <td data-label="Date">Oct 14, 2026</td>
+                  <td data-label="Amount">$249.00</td>
+                  <td data-label="Status"><span class="status paid">Completed</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Customer"><strong>Jackson Lee</strong></td>
+                  <td data-label="Product">Basic Plan</td>
+                  <td data-label="Date">Oct 13, 2026</td>
+                  <td data-label="Amount">$99.00</td>
+                  <td data-label="Status"><span class="status pending">Pending</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Customer"><strong>Isabella Nguyen</strong></td>
+                  <td data-label="Product">Business Plan</td>
+                  <td data-label="Date">Oct 12, 2026</td>
+                  <td data-label="Amount">$399.00</td>
+                  <td data-label="Status"><span class="status paid">Completed</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Customer"><strong>William Kim</strong></td>
+                  <td data-label="Product">Premium Plan</td>
+                  <td data-label="Date">Oct 11, 2026</td>
+                  <td data-label="Amount">$249.00</td>
+                  <td data-label="Status"><span class="status cancelled">Cancelled</span></td>
+                </tr>
+              </tbody>
+            </table>
+            <p id="emptyMessage" class="empty-message" hidden>No matching transactions found.</p>
+          </div>
+        </article>
+
+        <section class="page-view" id="customersPage" hidden>
+          <div class="page-intro"><span class="eyebrow">CUSTOMERS · DEMO DATA</span><h2>Customers</h2><p>A sample snapshot of your customer base.</p></div>
+          <div class="stats-grid page-stats">
+            <article class="stat-card"><div class="stat-top"><span>Total customers</span><div class="stat-icon blue"><i data-lucide="users"></i></div></div><h3>8,549</h3><p class="positive">↑ 8.2% <span>vs previous period</span></p></article>
+            <article class="stat-card"><div class="stat-top"><span>Returning customers</span><div class="stat-icon purple"><i data-lucide="repeat-2"></i></div></div><h3>64.8%</h3><p class="positive">↑ 3.1% <span>vs previous period</span></p></article>
+            <article class="stat-card"><div class="stat-top"><span>Avg. order value</span><div class="stat-icon green"><i data-lucide="wallet"></i></div></div><h3>$124.60</h3><p class="positive">↑ 2.4% <span>vs previous period</span></p></article>
+            <article class="stat-card"><div class="stat-top"><span>New this month</span><div class="stat-icon orange"><i data-lucide="user-plus"></i></div></div><h3>426</h3><p class="positive">↑ 6.7% <span>vs previous period</span></p></article>
+          </div>
+          <article class="panel page-panel"><div class="panel-heading"><div><h3>Customer highlights</h3><p>Illustrative customer segments</p></div></div><div class="highlight-grid"><div><span class="segment-icon"><i data-lucide="sparkles"></i></span><strong>New customers</strong><p>First-time buyers in the selected period</p><b>426 <small>sample customers</small></b></div><div><span class="segment-icon"><i data-lucide="heart-handshake"></i></span><strong>Returning customers</strong><p>Customers with more than one order</p><b>64.8% <small>of sample base</small></b></div><div><span class="segment-icon"><i data-lucide="crown"></i></span><strong>Top segment</strong><p>Customers on the Premium Plan</p><b>1,284 <small>sample customers</small></b></div></div></article>
+        </section>
+
+        <section class="page-view" id="productsPage" hidden>
+          <div class="page-intro"><span class="eyebrow">PRODUCTS · DEMO DATA</span><h2>Products</h2><p>Review a sample of the products in your catalog.</p></div>
+          <div class="product-grid">
+            <article class="panel product-card"><span class="product-symbol purple"><i data-lucide="layers-2"></i></span><span class="product-category">SUBSCRIPTION</span><h3>Basic Plan</h3><p>Core features for getting started.</p><div><strong>$99</strong><span> / month</span></div><footer><span>Demo sales</span><b>684</b></footer></article>
+            <article class="panel product-card featured-product"><span class="product-symbol blue"><i data-lucide="briefcase-business"></i></span><span class="product-category">SUBSCRIPTION</span><h3>Premium Plan</h3><p>Advanced tools for growing teams.</p><div><strong>$249</strong><span> / month</span></div><footer><span>Demo sales</span><b>1,248</b></footer></article>
+            <article class="panel product-card"><span class="product-symbol orange"><i data-lucide="building-2"></i></span><span class="product-category">SUBSCRIPTION</span><h3>Business Plan</h3><p>Flexible features for larger teams.</p><div><strong>$399</strong><span> / month</span></div><footer><span>Demo sales</span><b>554</b></footer></article>
+          </div>
+          <p class="demo-note"><i data-lucide="info"></i> Product names, pricing, and sales figures are fictional sample data.</p>
+        </section>
+
+        <section class="page-view" id="settingsPage" hidden>
+          <div class="page-intro"><span class="eyebrow">PREFERENCES</span><h2>Settings</h2><p>Adjust the appearance of this dashboard on your device.</p></div>
+          <article class="panel settings-panel"><div class="setting-row"><div class="setting-copy"><span class="setting-icon"><i data-lucide="moon"></i></span><div><strong>Dark appearance</strong><p>Switch between the light and dark dashboard themes.</p></div></div><button class="setting-toggle" id="settingsThemeBtn" role="switch" aria-checked="false" aria-label="Toggle dark appearance"><span></span></button></div><div class="setting-row"><div class="setting-copy"><span class="setting-icon"><i data-lucide="bell-ring"></i></span><div><strong>Notification center</strong><p>Open the notification menu to view its demo state.</p></div></div><button class="secondary-btn" id="settingsNotificationBtn">View notifications</button></div></article>
+          <p class="demo-note"><i data-lucide="info"></i> Settings are stored in this browser only. No account or service is connected.</p>
+        </section>
+
+        <section class="page-view" id="helpPage" hidden>
+          <div class="page-intro"><span class="eyebrow">SUPPORT</span><h2>Help Center</h2><p>Quick notes to help you explore the PULSE demo.</p></div>
+          <article class="panel help-panel"><div class="help-item"><span class="setting-icon"><i data-lucide="chart-no-axes-combined"></i></span><div><strong>Understanding the dashboard</strong><p>Summary figures and charts use fictional sample data and are for portfolio demonstration only.</p></div></div><div class="help-item"><span class="setting-icon"><i data-lucide="calendar-days"></i></span><div><strong>Changing the date range</strong><p>Use the date selector on Overview to update the revenue chart's displayed sample series.</p></div></div><div class="help-item"><span class="setting-icon"><i data-lucide="search"></i></span><div><strong>Finding transactions</strong><p>Search customer or product names, then filter the table by transaction status.</p></div></div></article>
+        </section>
+
+        <footer class="footer">
+          <p>© 2026 PULSE Dashboard. Demo interface for portfolio purposes.</p>
+          <span>Made with care.</span>
+        </footer>
+      </section>
+    </main>
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+  <script src="script.js"></script>
+</body>
+</html>
